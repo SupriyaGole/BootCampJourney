@@ -1,3 +1,6 @@
+/*
+    Rectangle should calculate area and perimeter
+ */
 public class Rectangle {
     private double height;
     private double width;
