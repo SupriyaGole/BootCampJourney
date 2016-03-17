@@ -6,16 +6,19 @@ public class Rectangle {
     private double height;
     private double width;
 
-    private Rectangle(double height, double width) {
+    protected Rectangle(double height, double width) {
         this.height = height;
         this.width = width;
     }
 
     public static Rectangle createRectangle(double height, double width) throws InvalidInputException {
-        if (height <= 0 && width <= 0) {
-            throw new InvalidInputException();
-        } else
+        if (height <= 0)
+            throw new InvalidInputException(height);
+        if (width <= 0)
+            throw new InvalidInputException(width);
+        else
             return new Rectangle(height, width);
+
     }
 
     public double calculateArea() {
