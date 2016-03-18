@@ -1,3 +1,5 @@
+package ExceptionHandler;
+
 /*
     Job of Class:-
         Associate message with the exception

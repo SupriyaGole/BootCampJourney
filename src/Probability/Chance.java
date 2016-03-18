@@ -36,7 +36,7 @@ public class Chance {
         return createChance(value - this.value);
     }
 
-    public Chance add(Chance otherChance) throws InvalidProbabilityException {
+    public Chance multiply(Chance otherChance) throws InvalidProbabilityException {
         return createChance(this.value * otherChance.value);
     }
 }

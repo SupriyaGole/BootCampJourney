@@ -21,7 +21,7 @@ public class ProbabilityCalculator {
         this.totalOutcome = totalOutcome;
     }
 
-    public static ProbabilityCalculator createProbabiltyCalculator(int favourable, int totalOutcome){
+    public static ProbabilityCalculator createProbabilityCalculator(int favourable, int totalOutcome){
         return new ProbabilityCalculator(favourable,totalOutcome);
     }
 
@@ -37,7 +37,7 @@ public class ProbabilityCalculator {
 
     public Chance getChanceOfGettingSameEvent() throws InvalidProbabilityException {
         Chance chanceOfEventOccurring = getChanceOfEventOccurring();
-        return chanceOfEventOccurring.add(getChanceOfEventOccurring());
+        return chanceOfEventOccurring.multiply(getChanceOfEventOccurring());
     }
 
     public Chance getChanceOfGettingAtLeastOneEvent() throws InvalidProbabilityException {

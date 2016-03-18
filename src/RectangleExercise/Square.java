@@ -1,3 +1,7 @@
+package RectangleExercise;
+
+import ExceptionHandler.InvalidInputException;
+
 /*
     Job of Class:-
     implement behaviours which use side as a parameter

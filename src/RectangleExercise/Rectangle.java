@@ -1,6 +1,10 @@
+package RectangleExercise;
+
+import ExceptionHandler.InvalidInputException;
+
 /*
-    Job of Rectangle :-
-    Rectangle should calculate area and perimeter
+    Job of RectangleExercise.Rectangle :-
+    RectangleExercise.Rectangle should calculate area and perimeter
  */
 public class Rectangle {
     private double height;

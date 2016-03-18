@@ -1,3 +1,6 @@
+package RectangleExercise;
+
+import ExceptionHandler.InvalidInputException;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
