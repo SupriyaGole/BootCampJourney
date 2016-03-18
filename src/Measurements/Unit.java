@@ -1,19 +1,23 @@
 package Measurements;
 
 public enum Unit {
-    feet_to_inches(12),
-    centimeter_to_inches(2.5),
-    millimeter_to_centimeter(10),
-    gallon_to_liter(3.78);
+    feet(300), inches(25), centimeter(10), millimeter(1), gallon(3.78), liter(1);
 
-    private double unitValue;
+    private double value;
 
-    Unit(double unitValue) {
-
-        this.unitValue = unitValue;
+    Unit(double value) {
+        this.value = value;
     }
 
-    public double getUnitValue(){
-        return unitValue;
+    public double convertIntoBaseMeasurement(double measure) {
+        return measure * this.value;
+    }
+
+    public String getHigherMeasurement(Unit otherMeasurement) {
+        return this.value > otherMeasurement.value ? this.name() : otherMeasurement.name();
+    }
+
+    public double convertIntoHigherMeasurement(String unitOfOperation,double otherValue){
+        return otherValue/value;
     }
 }
