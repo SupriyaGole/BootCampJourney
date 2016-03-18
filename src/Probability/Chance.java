@@ -32,11 +32,15 @@ public class Chance {
 
     }
 
-    public Chance subtract(int value) throws InvalidProbabilityException {
+    public Chance not(int value) throws InvalidProbabilityException {
         return createChance(value - this.value);
     }
 
-    public Chance multiply(Chance otherChance) throws InvalidProbabilityException {
+    public Chance and(Chance otherChance) throws InvalidProbabilityException {
         return createChance(this.value * otherChance.value);
+    }
+
+    public Chance or(Chance otherChance) throws InvalidProbabilityException {
+        return createChance(this.value + otherChance.value);
     }
 }
