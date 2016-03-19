@@ -27,7 +27,7 @@ public class ChanceTest {
 
     @Test
     public void subtract_should_subtract_chance_value_from_provided_value() throws InvalidProbabilityException {
-        Chance otherChance = chance.not(1);
+        Chance otherChance = chance.not();
         assertTrue(chance.equals(otherChance));
     }
 
@@ -46,35 +46,32 @@ public class ChanceTest {
         Chance.createChance(5.0);
     }
 
-//    @Test
-//    public void probability_should_calculate_chance_of_tail_getting_when_flipping_a_coin() throws InvalidProbabilityException {
-//        Chance chanceOfEventOccurring = Chance.createChance(0.5);
-//        Chance chance = chanceOfEventOccurring.getChanceOfEventOccurring();
-//        Chance otherChance = Chance.createChance(0.5);
-//        assertTrue(chance.equals(otherChance));
-//    }
+    @Test
+    public void probability_should_calculate_chance_of_tail_getting_when_flipping_a_coin() throws InvalidProbabilityException {
+        Chance chance = Chance.createChance(0.5);
+        Chance otherChance = Chance.createChance(0.5);
+        assertTrue(chance.equals(otherChance));
+    }
 
-//    @Test
-//    public void probability_should_calculate_chance_of_not_tail_getting_when_flipping_a_coin() throws InvalidProbabilityException {
-//        Chance chanceOfNotEventOccurring = Chance.createChance(0.5);
-//        Chance chance = chanceOfNotEventOccurring.getChanceOfNotEventOccurring();
-//        Chance otherChance = Chance.createChance(0.5);
-//        assertEquals(chance,otherChance);
-//    }
-//
-//    @Test
-//    public void probability_should_calculate_chance_of_both_getting_tail_when_flipping_two_coins() throws InvalidProbabilityException {
-//        Chance chanceOfEventOccurring = Chance.createChance(0.5);
-//        Chance chance = chanceOfEventOccurring.getChanceOfGettingSameEvent();
-//        Chance otherChance = Chance.createChance(0.25);
-//        assertEquals(otherChance,chance);
-//    }
-//
-//    @Test
-//    public void probability_should_calculate_chance_of_getting_atleast_one_tail_when_flipping_two_coins() throws InvalidProbabilityException {
-//        Chance chanceOfEventOccurring = Chance.createChance(0.5);
-//        Chance chance = chanceOfEventOccurring.getChanceOfGettingAtLeastOneEvent();
-//        Chance otherChance = Chance.createChance(0.75);
-//        assertEquals(chance,otherChance);
-//    }
+    @Test
+    public void probability_should_calculate_chance_of_not_tail_getting_when_flipping_a_coin() throws InvalidProbabilityException {
+        Chance otherChance = Chance.createChance(0.5);
+        assertTrue(chance.not().equals(otherChance));
+    }
+
+    @Test
+    public void probability_should_calculate_chance_of_both_getting_tail_when_flipping_two_coins() throws InvalidProbabilityException {
+        Chance otherChance = Chance.createChance(0.5);
+        Chance and = chance.and(otherChance);
+        Chance expected = Chance.createChance(0.25);
+        assertTrue(and.equals(expected));
+    }
+
+    @Test
+    public void probability_should_calculate_chance_of_getting_atleast_one_tail_when_flipping_two_coins() throws InvalidProbabilityException {
+        Chance otherChance = Chance.createChance(0.5);
+        Chance not = chance.not();
+        Chance not1 = otherChance.not();
+        Chance expected = Chance.createChance(0.75);
+    }
 }

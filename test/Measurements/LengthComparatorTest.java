@@ -93,4 +93,13 @@ public class LengthComparatorTest {
         Measurement expected = Measurement.create(Unit.inches,3);
         assertTrue(sumOfMeasurement.equals(expected));
     }
+
+    @Test
+    public void add_should_add_same_unit_of_measurement_and_returns_the_result() throws InvalidMeasurementException {
+        Measurement inchMeasurement1 = Measurement.create(Unit.inches, 2);
+        Measurement inchMeasurement2 = Measurement.create(Unit.inches, 2);
+        Measurement sumOfMeasurement = inchMeasurement1.add(inchMeasurement2);
+        Measurement expected = Measurement.create(Unit.inches,4);
+        assertTrue(sumOfMeasurement.equals(expected));
+    }
 }

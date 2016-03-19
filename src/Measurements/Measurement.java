@@ -1,6 +1,8 @@
 /*
     Job of Class:-
     Compare two measurements
+    add two measurements
+    equate two measurements
  */
 package Measurements;
 
@@ -25,18 +27,18 @@ public class Measurement {
     }
 
     public Measurement add(Measurement otherMeasurement) throws InvalidMeasurementException {
-        double sum = 0;
-        String unitOfOperation = "";
+        double sum;
+        String unitOfOperation;
         if (this.unit.name().equals(otherMeasurement.unit.name())) {
             sum = this.value + otherMeasurement.value;
             unitOfOperation = this.unit.name();
         }
         else{
             double sumInBaseMeasurement = addDifferentUnitValues(otherMeasurement);
-            unitOfOperation = unit.getHigherMeasurement(otherMeasurement.unit);
-            sum = unit.convertIntoHigherMeasurement(unitOfOperation,sumInBaseMeasurement);
+            unitOfOperation = unit.getHigherUnitOfMeasurement(otherMeasurement.unit);
+            sum = unit.convertIntoHigherUnitOfMeasurement(sumInBaseMeasurement);
         }
-        return Measurement.create(unit.valueOf(unitOfOperation), sum);
+        return Measurement.create(Unit.valueOf(unitOfOperation), sum);
     }
 
     private double addDifferentUnitValues(Measurement otherMeasurement){
@@ -49,7 +51,6 @@ public class Measurement {
         if (o == null || getClass() != o.getClass()) return false;
 
         Measurement that = (Measurement) o;
-        if (Double.compare(that.value, value) != 0) return false;
-        return unit == that.unit;
+        return Double.compare(that.value, value) == 0 && unit == that.unit;
     }
 }

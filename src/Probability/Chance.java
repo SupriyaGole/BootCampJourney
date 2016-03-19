@@ -32,8 +32,8 @@ public class Chance {
 
     }
 
-    public Chance not(int value) throws InvalidProbabilityException {
-        return createChance(value - this.value);
+    public Chance not() throws InvalidProbabilityException {
+        return createChance(1 - this.value);
     }
 
     public Chance and(Chance otherChance) throws InvalidProbabilityException {
