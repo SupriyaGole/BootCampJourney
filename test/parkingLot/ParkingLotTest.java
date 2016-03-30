@@ -27,19 +27,23 @@ public class ParkingLotTest {
     }
 
     @Test
-    public void should_park_a_car_space_is_available(){
-        Car car = new Car();
-        parkingLot.park(car);
-        parkingLot.park(car);
-        parkingLot.park(car);
+    public void should_park_a_new_Object_space_is_available() throws ParkingLotFullException {
+        parkingLot.park(new Object());
+        parkingLot.park(new Object());
+        parkingLot.park(new Object());
         assertEquals(3,parkingLot.totalParkedCar());
     }
 
     @Test
-    public void should_return_true_when_parking_is_full() throws InvalidParkingLotSizeException {
+    public void should_return_true_when_parking_is_full() throws InvalidParkingLotSizeException, ParkingLotFullException {
         ParkingLot parkingLot = ParkingLot.createParkingLot(1);
-        Car car = new Car();
-        parkingLot.park(car);
+        parkingLot.park(new Object());
         assertEquals(true,parkingLot.isFull());
+    }
+
+    @Test
+    public void name() {
+
+
     }
 }
